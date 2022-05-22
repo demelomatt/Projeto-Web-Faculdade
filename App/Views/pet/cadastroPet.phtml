@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro Bichano</title>
+  <link rel="icon" href="..\img\Imagem1.png">
+
+  <script>
+    function formatar(mascara, documento) {
+      var i = documento.value.length;
+      var saida = mascara.substring(0, 1);
+      var txt = mascara.substring(i)
+
+      if (txt.substring(0, 1) != saida) {
+        documento.value += txt.substring(0, 1);
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <header>
+    <img src="../img/logo.png" alt="heicao" width="300px">
+    <ul>
+      <a href="login.html">
+        <li>Login</li>
+      </a>
+      <a href="tela_servicos.php">
+        <li>Serviços</li>
+      </a>
+      <a href="#">
+        <li>Sobre</li>
+      </a>
+      <a href="#">
+        <li>Contato</li>
+      </a>
+    </ul>
+  </header>
+
+  <style>
+    body {
+      font-family: 'League Spartan', sans-serif;
+      margin-left: auto;
+      margin-right: auto;
+      background-image: url("../img/teste.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-color: #0C4271;
+
+    }
+
+    .principal {
+      width: 700px;
+      height: 900px;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border: 7px solid rgb(236, 233, 233);
+      border-radius: 30px;
+      margin: auto;
+
+    }
+
+    header {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-left: 10px;
+
+    }
+
+    a {
+      color: rgb(112, 111, 111);
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    a:hover {
+      color: rgb(202, 86, 223);
+      font-weight: bold;
+      transition: 0.3s all;
+    }
+
+    li {
+      display: inline-block;
+      margin: 20px;
+    }
+
+
+    input {
+      height: 10px;
+      padding: 15px;
+      border-radius: 9px;
+      font-size: 15px;
+      color: rgb(202, 86, 223);
+    }
+
+    .titulo {
+      color: rgb(202, 86, 223);
+      font-size: 40px;
+      font-weight: bold;
+      align-items: center;
+      justify-content: center;
+
+    }
+
+
+    form [type="submit"] {
+      height: 45px;
+      width: 150px;
+      background-color: rgb(202, 86, 223);
+      color: white;
+      font-weight: bold;
+      border: 9px;
+      cursor: pointer;
+      font-size: 20;
+    }
+
+    form [type="submit"]:hover {
+      background-color: white;
+      transition: 0.3s all;
+      color: rgb(202, 86, 223);
+      border: 3px solid rgb(202, 86, 223);
+      border-radius: 9px;
+
+
+    }
+
+    .link {
+      color: #0C4271;
+    }
+
+    .options {
+      font-size: 20px;
+
+    }
+  </style>
+
+  <div class="principal">
+    <h1 class="titulo"> Cadastro do Bichano</h1>
+    <form action="cadastrarPet" method="post">
+      <br>
+      <table style="width:100%">
+        <tr>
+          <td>
+            <p class="options">
+              Nome:<br><br>
+              <input type="text" name="txtnome"  class="masked">
+            </p>
+          </td>
+          <td>
+            <p class="options">
+              Apelido:<br><br>
+              <input type="text" name="txtapelido" >
+            </p>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <p class="options">
+              Espécie:<br><br>
+              <input type="radio" id="cachorro" name="especie" value="cachorro">
+                <label for="sim">Cachorro</label>
+              <input type="radio" id="gato" name="especie" value="gato">
+                <label for="nao">Gato</label><br>
+            </p>
+          </td>
+          <td>
+            <p class="options">
+              Peso:<br><br>
+              <input type="text" name="txtpeso" maxlength="6" OnKeyPress="formatar('##.## kg', this)">
+            </p>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <p class="options">
+              Temperamento:<br><br>
+              <input type="radio" id="arisco" name="temperamento" value="arisco">
+                <label for="sim">Arisco</label>
+              <input type="radio" id="tranquilo" name="temperamento" value="tranquilo">
+                <label for="nao">Tranquilo</label><br>
+            </p>
+          </td>
+          <td>
+            <p class="options">
+              Castrado:<br><br>
+              <input type="radio" id="sim" name="castrado" value="sim">
+                <label for="sim">Sim</label>
+              <input type="radio" id="nao" name="castrado" value="nao">
+                <label for="nao">Não</label><br>
+            </p>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <p class="options">
+              Data de Nascimento:<br><br>
+              <input type="text" name="txtdtnascimento" maxlength="10" OnKeyPress="formatar('##/##/####', this)">
+            </p>
+          </td>
+          <td>
+            <p class="options">
+              Cor:<br><br>
+              <input type="text" name="txtcor" >
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p class="options">
+              Sexo:<br><br>
+              <input type="radio" id="macho" name="sexo" value="macho">
+                <label for="sim">Macho</label>
+              <input type="radio" id="femea" name="sexo" value="femea">
+                <label for="nao">Femea</label><br>
+            </p>
+          </td>
+          <td>
+            <p class="options">
+              Raça:<br><br>
+              <input type="text" name="txtraca" >
+            </p>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <p class="options">
+              Deficiência:<br><br>
+              <input type="radio" id="sim" name="def" value="sim">
+                <label for="sim">Sim</label>
+              <input type="radio" id="nao" name="def" value="nao">
+                <label for="nao">Não</label><br>
+            </p>
+          </td>
+          <td>
+            <p class="options">
+              RGA:<br><br>
+              <input type="text" name="txtrga" maxlength="9" OnKeyPress="formatar('#.###.###', this)">
+            </p>
+          </td>
+        </tr>
+      </table>
+      <p>
+        <input type="submit" value="Cadastrar">
+      </p>
+    </form>
+  </div>
+</body>
+
+</html>
