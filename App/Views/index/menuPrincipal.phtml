@@ -1,0 +1,13 @@
+<?php
+session_start();
+$usu = $_SESSION['nome_usuario'];
+echo $usu;  
+if ($usu != 'Silvio')
+{	echo "Acesso Negado!"; 
+    exit(); 
+}
+?>
+
+<h1>Selecione um item do Menu</h1>
+<hr />
+

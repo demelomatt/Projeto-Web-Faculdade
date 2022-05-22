@@ -1,0 +1,18 @@
+    </div>
+       <div class="container">
+        <h2>Alterar Produto</h2>
+        <form action="/salvarProduto" method="post">
+            <div class="form-group">
+                <input type="hidden" class="form-control" id="Id" placeholder="Digite a id" name="id" value="<?php echo $this->view->dados[0]["id"] ?>">
+            </div>
+            <div class="form-group">
+                <label for="nome">Descricao:</label>
+                <input type="text" class="form-control" id="Descricao" placeholder="Digite a descricao" name="descricao" value="<?php echo $this->view->dados[0]["descricao"] ?>">
+            </div>
+            <div class="form-group">
+                <label for="email">Preço:</label>
+                <input type="text" class="form-control" id="Valor" placeholder="Digite o valor" name="preco" value="<?php echo $this->view->dados[0]["preco"] ?>">
+            </div>
+           <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
