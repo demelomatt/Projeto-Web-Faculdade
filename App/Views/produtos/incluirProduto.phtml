@@ -1,0 +1,16 @@
+    <div class="container">
+        <h2>Adicionar Produto</h2>
+        <form action="/salvarProduto" method="post">
+        	<input type="hidden" class="form-control" id="Id" placeholder="Digite a id" name="id" value="0">
+            
+            <div class="form-group">
+                <label for="nome">Descricao:</label>
+                <input type="text" class="form-control" id="Descricao" placeholder="Digite a descricao" name="descricao">
+            </div>
+            <div class="form-group">
+                <label for="email">Preço:</label>
+                <input type="text" class="form-control" id="Valor" placeholder="Digite o valor" name="preco">
+            </div>
+           <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>

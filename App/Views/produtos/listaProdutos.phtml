@@ -1,0 +1,41 @@
+	<div class="container">
+    <h2>
+      <a href='/incluirProduto'>
+        <img src="imagens/usuarios.png" alt="Incluir Usuarios" width="45" height="45">
+      </a>
+      Lista dos produtos cadastrados no sistema
+    </h2>
+    <br>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Ações</th>
+          <th>Id</th>
+          <th>Descrição</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+       	    foreach($this->view->dados as $indice => $produto) {
+            echo "<tr><td>
+                  <a href='/alterarProduto?id=" . $produto["id"] . "'>
+                      <img src='imagens/pen-icon.png' alt='Alterar' width='25' height='25'>
+                  </a>
+
+                  <a href='/excluirProduto?id=" . $produto["id"] . "'>
+                      <img src='imagens/Button-Delete-icon.png' alt='Alterar' width='25' height='25'>
+                  </a>
+                  
+                  </td><td>"
+              . $produto["id"] .
+              "</td><td>"
+              . $produto["descricao"] .
+              "</td><td>"
+              . $produto["preco"] .
+              "</td></tr>";
+          }
+        ?>
+      </tbody>
+    </table>
+  </div>

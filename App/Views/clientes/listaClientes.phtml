@@ -1,0 +1,9 @@
+<h1> Clientes</h1> 
+ <a href='/incluirCliente'>
+        <img src="imagens/usuarios.png" alt="Incluir Clientes" width="45" height="45">
+      </a>
+   <?php
+    foreach($this->view->dados as $indice => $cliente) {
+        echo "<br> " . $cliente["id"] . " - " . $cliente["nome"];
+    }
+?>
