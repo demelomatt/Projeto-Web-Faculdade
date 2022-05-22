@@ -24,37 +24,32 @@ class PetController extends Action {
 		
 	}
 
-    public function cadastrarTutor() {
-        $cpf = $_POST["txtcpf"];
+    public function cadastrarPet() {
+        $rga = $_POST["txtrga"];
         $nome = $_POST["txtnome"];
-		$celular = $_POST["txtcelular"];
-        $telefone = $_POST["txttelefone"];
-        $email = $_POST["txtemail"];
-        $senha = $_POST["txtsenha"];
-        $cep = $_POST["txtcep"];
-        $uf = $_POST["txtuf"];
-        $cidade = $_POST["txtcidade"];
-        $logradouro = $_POST["txtcidade"];
-        $bairro = $_POST["txtcidade"];
-        $numeroEndereco = $_POST["txtnumero"];
-        $complementoEndereco = $_POST["txtcomplemento"];
+		$sexo = $_POST["txtsexo"];
+        $dt_nascimento = $_POST["txtdt_nascimento"];
+        $apelido = $_POST["txtapelido"];
+        $raca = $_POST["txtraca"];
+        $cor = $_POST["txtcor"];
+        $temperamento = $_POST["txttemperamento"];
+        $castrado = $_POST["txtcastrado"];
+        $deficiencia = $_POST["txtdeficiencia"];
+    
 
 
-		$tutor = Container::getModel('Tutor');
-        $tutor->setCpf($cpf);
-        $tutor->setNome($nome);
-        $tutor->setCelular($celular);
-        $tutor->setEmail($email);
-        $tutor->setSenha($senha);
-        $tutor->setCep($cep);
-        $tutor->setUf($uf);
-        $tutor->setLogradouro($logradouro);
-        $tutor->setBairro($bairro);
-        $tutor->setCidade($cidade);
-        $tutor->setNumeroEndereco($numeroEndereco);
-        $tutor->setComplementoEndereco($complementoEndereco);
-        $tutor->cadastrarTutor($tutor);
-        $tutor->iniciarSessao();
+		$tutor = Container::getModel('Pet');
+        $pet->setRga($rga);
+        $pet->setNome($nome);
+        $pet->setSexo($sexo);
+        $pet->setDt_nascimento($dt_nascimento);
+        $pet->setApelido($apelido);
+        $pet->setRaca($raca);
+        $pet->setCor($cor);
+        $pet->setTemperamento($temperamento);
+        $pet->setCastrado($castrado);
+        $pet->setDeficiencia($deficiencia);
+        $pet->iniciarSessao();
 	}
 
     public function loginTutor() {
