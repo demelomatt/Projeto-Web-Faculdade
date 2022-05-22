@@ -4,13 +4,6 @@ use MF\Init\Bootstrap;
 class Route extends Bootstrap {
 
 	protected function initRoutes() {
-	
-// menu Principal 		
-		$routes['menuPrincipal'] = array(
-			'route' => '/menuPrincipal',
-			'controller' => 'indexController',
-			'action' => 'menuPrincipal'
-		);
 
 		$routes['home'] = array(
 			'route' => '/',
@@ -23,53 +16,52 @@ class Route extends Bootstrap {
 			'action' => 'sobreNos'
 		);	
 
-// Produtos
-		$routes['produtos'] = array(
-			'route' => '/produtos',
-			'controller' => 'ProdutosController',
-			'action' => 'listaProdutos'
+// tutor 
+
+		$routes['cadastroTutor'] = array(
+			'route' => '/cadastro',
+			'controller' => 'TutorController',
+			'action' => 'renderizar'
 		);
 
-		$routes['incluirProduto'] = array(
-			'route' => '/incluirProduto',
-			'controller' => 'ProdutosController',
-			'action' => 'incluirProduto'
-		);
-
-		$routes['salvarProduto'] = array(
-			'route' => '/salvarProduto',
-			'controller' => 'ProdutosController',
-			'action' => 'salvarProduto'
-		);
-
-		$routes['alterarProduto'] = array(
-			'route' => '/alterarProduto',
-			'controller' => 'ProdutosController',
-			'action' => 'alterarProduto'
+		$routes['cadastrarTutor'] = array(
+			'route' => '/cadastrar',
+			'controller' => 'TutorController',
+			'action' => 'cadastrarTutor'
 		);
 
 
-
-		$routes['excluirProduto'] = array(
-			'route' => '/excluirProduto',
-			'controller' => 'ProdutosController',
-			'action' => 'excluirProduto'
+		$routes['telaLogin'] = array(
+			'route' => '/login',
+			'controller' => 'TutorController',
+			'action' => 'renderizarLogin'
 		);
 
-
-// clientes 
-
-		$routes['listaClientes'] = array(
-			'route' => '/listaClientes',
-			'controller' => 'ClientesController',
-			'action' => 'listaClientes'
+		$routes['logar'] = array(
+			'route' => '/logar',
+			'controller' => 'TutorController',
+			'action' => 'loginTutor'
 		);
 
-		$routes['incluirClientes'] = array(
-			'route' => '/incluirCliente',
-			'controller' => 'ClientesController',
-			'action' => 'incluirClientes'
+		$routes['perfil'] = array(
+			'route' => '/perfil',
+			'controller' => 'TutorController',
+			'action' => 'perfilTutor'
 		);
+
+		// PET
+		$routes['cadastroPet'] = array(
+			'route' => '/cadastrar_pet',
+			'controller' => 'PetController',
+			'action' => 'renderizar'
+		);
+
+		$routes['cadastrarTutor'] = array(
+			'route' => '/cadastrar',
+			'controller' => 'TutorController',
+			'action' => 'cadastrarTutor'
+		);
+
 
 
 		$this->setRoutes($routes);

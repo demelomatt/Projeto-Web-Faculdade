@@ -24,11 +24,28 @@ class Tutor {
 		$this->db = $db;
 	}
 
-    public function getId() {
-    	return $this->id; 
+    
+    public function getEmail() {
+    	return $this->email; 
     }
-    public function setId($id) {
-    	$this->id = $id; 
+    public function setEmail($email) {
+    	$this->email = $email; 
+    }
+
+    public function getSenha() {
+    	return $this->senha; 
+    }
+    public function setSenha($senha) {
+    	$this->senha = $senha; 
+    }
+
+
+    public function getId() {
+        $query = "SELECT id_tutor FROM tb_tutor where email= '". $this->getEmail() ."'";
+        $output =  $this->db->query($query)->fetchAll();
+        $id = $output[0]['id_tutor'];
+        return $id;
+
     }
 
     public function getCpf() {
@@ -80,20 +97,6 @@ class Tutor {
     	$this->complemento_endereco = $complemento_endereco; 
     }
 
-    public function getEmail() {
-    	return $this->email; 
-    }
-    public function setEmail($email) {
-    	$this->email = $email; 
-    }
-
-    public function getSenha() {
-    	return $this->senha; 
-    }
-    public function setSenha($senha) {
-    	$this->senha = $senha; 
-    }
-
     public function getUf() {
     	return $this->uf; 
     }
@@ -102,17 +105,17 @@ class Tutor {
     }
 
     public function getLogradouro() {
-    	return $this->uf; 
+    	return $this->logradouro; 
     }
     public function setLogradouro($logradouro) {
     	$this->logradouro = $logradouro; 
     }
 
     public function getCidade() {
-    	return $this->uf; 
+    	return $this->cidade; 
     }
-    public function setCidade($logradouro) {
-    	$this->logradouro = $logradouro; 
+    public function setCidade($cidade) {
+    	$this->cidade = $cidade; 
     }
 
     public function getBairro() {
@@ -160,16 +163,29 @@ class Tutor {
 
     public function iniciarSessao($tela){
         session_start();
-        $_SESSION["user"] = $this->getEmail();
+        
+        $_SESSION["user"] = $this->getId();
         header("Location: /".$tela);
     }
 
-    public function getTutor($tutor) {
+
+    public function getTutor($id) {
+
+        $query = "SELECT * FROM tb_tutor where id_tutor= '". $id ."'";
+
+		return $this->db->query($query)->fetchAll();
+	}
+
+    
+
+
+    public function loginTutor($tutor) {
 
         $query = "SELECT * FROM tb_tutor where email= '". $tutor->getEmail() . "'and senha ='" .$tutor->getSenha() ."'";
 
 		return $this->db->query($query)->fetchAll();
 	}
+
 
 
     public function atualizarTutor($tutor) {

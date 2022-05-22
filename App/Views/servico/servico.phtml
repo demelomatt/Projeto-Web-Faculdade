@@ -96,6 +96,7 @@
 
     .conteudo-servicos h1 {
       color: #CB6CE6;
+      
     }
 
     .conteudo {
@@ -139,6 +140,7 @@
     .banho {
       background-color: #F2F2F2;
       grid-area: a;
+      border-radius: 10px;
     }
 
     .bloco-banho {
@@ -152,6 +154,8 @@
     .daycare {
       background-color: #F2F2F2;
       grid-area: b;
+      border-radius: 10px;
+
     }
 
     .bloco-daycare {
@@ -165,6 +169,8 @@
     .walker {
       background-color: #F2F2F2;
       grid-area: c;
+      border-radius: 10px;
+
     }
 
     .bloco-walker {
@@ -178,6 +184,8 @@
     .petsitter {
       background-color: #F2F2F2;
       grid-area: d;
+      border-radius: 10px;
+
     }
 
     .bloco-petSitter {
@@ -191,6 +199,8 @@
     .consulta {
       background-color: #F2F2F2;
       grid-area: e;
+      border-radius: 10px;
+
     }
 
     .bloco-consultaVet {
@@ -204,6 +214,8 @@
     .hospedagem {
       background-color: #F2F2F2;
       grid-area: f;
+      border-radius: 10px;
+
     }
 
     .bloco-hospedagem {
@@ -240,7 +252,7 @@
     <div class="mae-bloco">
 
       <div class="bloco">
-
+          
         <div class="banho">
 
           <div class="bloco-banho">
@@ -353,7 +365,7 @@
                 </div>
 
                 <div class="texto">
-                  <p>Profissionairs prontos para tratar o seu pet</p>
+                  <p>Profissionais prontos para tratar o seu pet</p>
                 </div>
               </div>
 

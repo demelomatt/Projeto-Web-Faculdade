@@ -5,7 +5,7 @@ class Connection {
 		try {
 
 			$conn = new \PDO(
-				"mysql:host=localhost;dbname=mvc;charset=utf8",
+				"mysql:host=localhost;dbname=fmu_projeto_web;charset=utf8",
 				"root",
 				"" 
 			);

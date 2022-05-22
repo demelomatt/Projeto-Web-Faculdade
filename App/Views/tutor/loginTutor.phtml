@@ -42,13 +42,14 @@
 }
 .principal{
     width: 350px;
-    height: 500px;
+    height: 450px;
     align-items: center;
     justify-content: center;
     text-align: center;
     border: 7px solid rgb(236, 233, 233);
     border-radius: 30px;
     margin: auto;
+    
     
 }
 
@@ -103,6 +104,7 @@ form [type="submit"]{
     border: 9px;   
     cursor: pointer;
     font-size: 20;
+    
 }
 
 form [type="submit"]:hover{
@@ -121,26 +123,25 @@ form [type="submit"]:hover{
 
     </style>
 
-    <br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br>
+    
     <div class="principal">
         <h1 class="titulo"> Login </h1> <br>
-        <form action = "\logar" method="post">
+        <form action = "/logar" method="post">
         <p >
         Usuário:<br><br>
-        <input type="text" name="txtusuario" placeholder="AAA AAA">
+        <input type="text" name="txtusuario" placeholder="">
         </p>
         <p>
         Senha:<br><br>
-        <input type="password" name="txtsenha" placeholder="AAA AAA">
+        <input type="password" name="txtsenha" placeholder="">
         </p>
-        <p><br>
-        <input type="submit" value="Acessar" >
+        <p><br><br>
+        <input type="submit" value="Acessar" ><br><br>
+        <p> Ainda não possui uma conta? <a href="/cadastro" class="link">Clique aqui!</a></p> 
         </p>        
-</form><br><br>
-      <p> Ainda não possui uma conta? <a href="cadastro.html" class="link">Clique aqui!</a></p>  
-    </div>
-
-   
-        
+</form>
+       
+    </div> 
 </body>
 </html>

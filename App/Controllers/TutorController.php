@@ -18,6 +18,8 @@ class TutorController extends Action {
 		$this->render('cadastroTutor', '');
 	}
 
+
+
     public function removerAcentos($string){
         $newString = str_replace("-","",$string);
         $newString  = str_replace(".","",$newString );
@@ -36,12 +38,13 @@ class TutorController extends Action {
         $uf = $_POST["txtuf"];
         $cidade = $_POST["txtcidade"];
         $logradouro = $_POST["txtlogradouro"];
-        $bairro = $_POST["txtcidade"];
+        $bairro = $_POST["txtbairro"];
         $numeroEndereco = $_POST["txtnumero"];
         $complementoEndereco = $_POST["txtcomplemento"];
 
 
 		$tutor = Container::getModel('Tutor');
+        $tutor->setCpf($cpf);
         $tutor->setCpf($cpf);
         $tutor->setNome($nome);
         $tutor->setCelular($celular);
@@ -57,8 +60,7 @@ class TutorController extends Action {
         $tutor->setComplementoEndereco($complementoEndereco);
 
         $result = $tutor->cadastrarTutor($tutor);
-        
-        
+
         if ($result == 0){
             
             $this->renderizarLogin();
@@ -85,13 +87,12 @@ class TutorController extends Action {
 
         $tutor->setEmail($email);
         $tutor->setSenha($senha);
-        $result = $tutor->getTutor($tutor);
+        $result = $tutor->loginTutor($tutor);
 
                 
         // Se usuário e senha existem, então iniciar sessão e ir para tela de perfil
         if ($result){
             $tutor->iniciarSessao("perfil");
-            
 
         }
 
@@ -102,14 +103,19 @@ class TutorController extends Action {
     }
 
     public function perfilTutor() {
+
         session_start();
         if($_SESSION["user"]){
-            $this->render('perfilTutor', '');
+            $tutor = Container::getModel('Tutor');
+            $registroTutor = $tutor->getTutor($_SESSION["user"]);
+            $this->view->dados = $registroTutor;
+            
+           $this->render('perfilTutor', '');
         }
         else{
             $this->renderizarLogin();
         }
 
-        
+
 	}
 }

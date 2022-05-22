@@ -1,5 +1,6 @@
 <?php
 namespace App\Models;
+
 class Pet {
 
     protected $id_pet; 
@@ -14,9 +15,6 @@ class Pet {
     protected $temperamento; 
     protected $castrado; 
     protected $deficiencia;
-
-    /*protected $email;
-    protected $senha; */
 
 	protected $db;
 
@@ -109,51 +107,26 @@ class Pet {
     }
 
        public function cadastrarPet($pet) {
-        // Chechar se cpf ou email já foram cadastrados 
-        $query = sprintf("select rga, nome from tb_pet where rga = %s or nome = %s", "'".$pet->getRga()."'", "'".$pet->getNome()."'");
-        $result = $this->db->query($query)->fetchAll();
 
-        // Retornar 0 se houver registros
-        if($result){
-            return 0;
-        }
-
-        else{
-            $query = "insert into tb_pet (rga, tipo_pet, nome, sexo, dt_nascimento, apelido, raca, cor, temperamento, castrado, deficiencia) 
-            values(
-                '".$pet->getRga()."',
-                '".$pet->getTipo_pet()."',
-                '".$pet->getNome()."',
-                '".$pet->getSexo()."',
-                '".$pet->getDt_nascimento()."',
-                '".$pet->getApelido()."', 
-                '".$pet->getRaca()."', 
-                '".$pet->getCor()."', 
-                '".$pet->getTemperamento()."', 
-                '".$pet->getCastrado()."', 
-                '".$pet->getDeficiencia()."'
-            )";
-            
-            return $this->db->query($query)->fetchAll();
-    
-        }
+        $query = "insert into tb_pet (rga, tipo_pet, nome, sexo, data_nascimento, apelido, raca, cor, temperamento, castrado, deficiencia) 
+        values(
+            '".$pet->getRga()."',
+            '".$pet->getTipo_pet()."',
+            '".$pet->getNome()."',
+            '".$pet->getSexo()."',
+            '".$pet->getDt_nascimento()."',
+            '".$pet->getApelido()."', 
+            '".$pet->getRaca()."', 
+            '".$pet->getCor()."', 
+            '".$pet->getTemperamento()."', 
+            '".$pet->getCastrado()."', 
+            '".$pet->getDeficiencia()."'
+        )";
+        
+        return $this->db->query($query)->fetchAll();
 
 
 	}
-
-    public function iniciarSessao($tela){
-        session_start();
-        $_SESSION["pet"] = $this->getNome();
-        header("Location: /".$tela);
-    }
-
-    public function getTutor($tutor) {
-
-        $query = "SELECT * FROM tb_tutor where email= '". $tutor->getEmail() . "'and senha ='" .$tutor->getSenha() ."'";
-
-		return $this->db->query($query)->fetchAll();
-	}
-
 
     public function atualizarPet($pet) {
 		

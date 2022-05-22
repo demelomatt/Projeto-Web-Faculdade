@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendamento</title>
+    <title>Agendamento de Serviços</title>
+    <link rel="icon" href="../img/Imagem1.png">
 </head>
 
 <body>
@@ -16,10 +17,10 @@
         <ul>
             <a href="login.html">
                 <li>Login</li>
-              </a>
-              <a href="tela_servicos.php">
+            </a>
+            <a href="tela_servicos.php">
                 <li>Serviços</li>
-              </a>
+            </a>
             <a href="#">
                 <li>Sobre</li>
             </a>
@@ -43,7 +44,7 @@
 
         .principal {
             width: 700px;
-            height: 500px;
+            height: 480px;
             align-items: center;
             justify-content: center;
             text-align: center;
@@ -130,13 +131,12 @@
             border: 2px solid black;
 
         }
-        
     </style>
 
     <br><br><br><br><br><br>
     <div class="principal">
         <h1 class="titulo"> Agendamento </h1>
-        Preencha as informações abaixo<br>
+        Preencha as informações abaixo<br><br>
         <form action="tela_agendamento.php" method="post">
             <br>
             <table style="width:100%">
@@ -159,10 +159,8 @@
                         <p>
                             <b>Pet:</b><br><br>
                             <select size="1" class="menu" id="menu_pet">
-                                <option value></option>
-                                <option value>a</option>
-                                <option value>b</option>
-                                <option value>c</option>
+                                <option value></option> /*deixar essa em branco*
+                                <option value="lulu">lulu</option>
                             </select>
                         </p>
                     </td>
@@ -172,10 +170,38 @@
                         <p>
                             <b>Dia:</b><br><br>
                             <select size="1" class="menu" id="menu_dia">
-                                <option value></option>
-                                <option value>a</option>
-                                <option value>b</option>
-                                <option value>c</option>
+                                <option value></option> /*deixar essa em branco*
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
                             </select>
                         </p>
                     </td>
@@ -184,9 +210,20 @@
                             <b>Horário:</b><br><br>
                             <select size="1" class="menu" id="menu_horario">
                                 <option value></option>
-                                <option value>a</option>
-                                <option value>b</option>
-                                <option value>c</option>
+                                <option value="10:30">10:30</option>
+                                <option value="11:00">11:00</option>
+                                <option value="11:30">11:30</option>
+                                <option value="12:00">12:00</option>
+                                <option value="13:00">13:00</option>
+                                <option value="13:30">13:30</option>
+                                <option value="14:00">14:00</option>
+                                <option value="14:30">14:30</option>
+                                <option value="15:00">15:00</option>
+                                <option value="15:30">15:30</option>
+                                <option value="16:00">16:00</option>
+                                <option value="16:30">16:30</option>
+                                <option value="17:00">17:00</option>
+                                <option value="17:30">17:30</option>
                             </select>
                         </p>
                     </td>
@@ -197,8 +234,5 @@
                 <input type="submit" value="Agendar">
             </p>
     </div>
-
-
 </body>
-
 </html>

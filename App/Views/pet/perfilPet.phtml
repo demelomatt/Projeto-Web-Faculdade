@@ -131,6 +131,7 @@
     #titulo {
       color: #CB6CE6;
       margin-bottom: 3%;
+      font-weight: bold;
     }
 
     #titulo-info {
@@ -138,7 +139,11 @@
     }
 
     .botao:hover {
-      background-color: #d992ed;
+      background-color: white;
+      transition: 0.3s all;
+      color: rgb(202, 86, 223);
+      border: 3px solid rgb(202, 86, 223);
+      border-radius: 9px;
     }
 
     .botao {
@@ -187,7 +192,7 @@
           <div class="info-geral">
             <div class="row">
               <div id="foto-pet" class="col-4">
-                <img id="foto-perfil" src="..\img\perfil-pet\foto-petzinho.PNG">
+                <img id="foto-perfil" src="..\img\A.PNG">
               </div>
               <div id="info-pet" class="col-6">
                 <div class="row">
@@ -196,7 +201,7 @@
                   <br>
                 </div>
                 <div class="row">
-                  <p id="p-alinhado" name="id_pet">Número do Registro Animal</p>
+                  <p id="p-alinhado" name="id_pet">RGA: </p>
                   <br>
                   <br>
                 </div>
@@ -210,6 +215,9 @@
                   <div class="col">
                     <p name="sexo_pet">Sexo</p>
                   </div>
+                  <div class="col">
+                    <p name="nascimento_pet">Data de Nascimento</p>
+                  </div>
                   <br>
                 </div>
               </div>
@@ -221,18 +229,18 @@
           <div class="info-adicional">
             <div class="row">
               <div class="col">
-                <p id="titulo-info">Temperamento do Pet
+                <p id="titulo-info">Temperamento:
                 <p>
                   <span class="span" name="temperamento_pet"></span>
               </div>
               <div class="col">
-                <p id="titulo-info">Possui alguma defiência ? Se sim, qual ?</p>
+                <p id="titulo-info">Deficiência</p>
                 <span class="span" name="deficiencia_pet"></span>
               </div>
             </div>
             <div class="row">
               <div class="col">
-                <p id="titulo-info">Castrado ?
+                <p id="titulo-info">Castrado:
                 <p>
                   <span class="span" name="castrado_pet"></span>
               </div>
@@ -247,7 +255,21 @@
             </div>
             <div class="row justify-content-center">
               <div class="col-auto">
-                <button id="titulo-info" class="botao">Atualizar</button>
+              <table style="width:100%">
+                  <tr>
+                    <td>
+                      <p class="options">
+                        <button id="titulo-info" class="botao">Atualizar</button>
+                      </p>
+                    </td>
+                    <td>
+                      <p class="options">
+                        <button id="titulo-info" class="botao">Excluir </button>
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
               </div>
             </div>
           </div>
