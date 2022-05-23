@@ -179,7 +179,7 @@
         <li><a href="/#quem-somos">Sobre</a></li>
         <li><a href="/#contato">Contato</a></li>
         <li><a href="/servicos">Serviços</a></li>
-        <li><a id="login" href="#">Cliente Logado</a></li>
+        <li><a id="login" href="/logout">Sair</a></li>
       </ul>
     </nav>
   </header>
@@ -253,7 +253,7 @@
               <td>
                 <div id="foto-pet" class="col-4">
                   <span name="foto_pet"><img id="foto-perfil" src="..\img\perfil-pet\foto-petzinho.PNG"></span>
-                  <span name="nome_pet">'. $pet['NOME']. '</span>
+                  <span name="nome_pet"><a href="/perfil_pet?id='. $pet['ID_PET']. '">'. $pet['NOME']. '</a></span>
                 </div>
               </td>
               ';

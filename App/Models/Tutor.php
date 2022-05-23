@@ -124,10 +124,10 @@ class Tutor {
     	$this->bairro = $bairro; 
     }
 
-    public function cadastrarTutor($tutor) {
+    public function cadastrarTutor() {
 
         // Chechar se cpf ou email já foram cadastrados 
-        $query = sprintf("select id_tutor, cpf, email from tb_tutor where cpf = %s or email = %s", "'".$tutor->getCpf()."'", "'".$tutor->getEmail()."'");
+        $query = sprintf("select id_tutor, cpf, email from tb_tutor where cpf = %s or email = %s", "'".$this->getCpf()."'", "'".$this->getEmail()."'");
         $result = $this->db->query($query)->fetchAll();
 
         // Retornar 0 se houver registros
@@ -138,19 +138,19 @@ class Tutor {
         else{
             $query = "insert into tb_tutor (nome, cpf, celular, email, senha, telefone, cep, uf, logradouro, cidade, bairro, numero, complemento) 
             values(
-                '".$tutor->getNome()."',
-                '".$tutor->getCpf()."',
-                '".$tutor->getCelular()."',
-                '".$tutor->getEmail()."',
-                '".$tutor->getSenha()."',
-                '".$tutor->getTelefone()."', 
-                '".$tutor->getCep()."', 
-                '".$tutor->getUf()."', 
-                '".$tutor->getLogradouro()."', 
-                '".$tutor->getCidade()."', 
-                '".$tutor->getBairro()."', 
-                '".$tutor->getNumeroEndereco()."', 
-                '".$tutor->getComplementoEndereco()."' 
+                '".$this->getNome()."',
+                '".$this->getCpf()."',
+                '".$this->getCelular()."',
+                '".$this->getEmail()."',
+                '".$this->getSenha()."',
+                '".$this->getTelefone()."', 
+                '".$this->getCep()."', 
+                '".$this->getUf()."', 
+                '".$this->getLogradouro()."', 
+                '".$this->getCidade()."', 
+                '".$this->getBairro()."', 
+                '".$this->getNumeroEndereco()."', 
+                '".$this->getComplementoEndereco()."' 
             )";
             
             return $this->db->query($query)->fetchAll();
@@ -167,6 +167,12 @@ class Tutor {
         header("Location: /".$tela);
     }
 
+    public function logOut(){
+        session_start();
+        session_unset();
+        session_destroy();
+
+    }
 
     public function getTutor($id) {
 
@@ -175,19 +181,19 @@ class Tutor {
 		return $this->db->query($query)->fetchAll();
 	}
 
-    public function loginTutor($tutor) {
+    public function loginTutor() {
 
-        $query = "SELECT * FROM tb_tutor where email= '". $tutor->getEmail() . "'and senha ='" .$tutor->getSenha() ."'";
+        $query = "SELECT * FROM tb_tutor where email= '". $this->getEmail() . "'and senha ='" .$this->getSenha() ."'";
 
 		return $this->db->query($query)->fetchAll();
 	}
 
 
 
-    public function atualizarTutor($tutor) {
+    public function atualizarTutor() {
 		
         $query = sprintf("update tb_tutor set nome = %s, cpf = %s, celular = %s, email = %s, senha = %s, cep = %s",
-        $tutor->getNome(),$tutor->getCpf(), $tutor->getCelular(), $tutor->getEmail(), $tutor->getSenha(), $tutor->getCep()
+        $this->getNome(),$this->getCpf(), $this->getCelular(), $this->getEmail(), $this->getSenha(), $this->getCep()
         );
 
 		return $this->db->query($query)->fetchAll();

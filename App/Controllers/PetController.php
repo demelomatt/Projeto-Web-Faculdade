@@ -24,6 +24,31 @@ class PetController extends Action {
 		
 	}
 
+    public function perfilPet() {
+        session_start();
+        if($_SESSION["user"]){
+            $pet_id = $_GET["id"];
+            $pet = Container::getModel('Pet');
+            $pet->setId_tutor($_SESSION["user"]);
+            $pet->setId_pet($pet_id);
+            $output = $pet->getPetById();
+
+            if($output){
+                $this->view->dados = $output;
+                $this->render('perfilPet', '');
+            }
+            else{
+                header('location:\perfil');
+            }
+ 
+        }
+        else{
+            header('location:\login');
+        }
+		
+	}
+
+
     public function removerAcentos($string){
         $newString = str_replace("-","",$string);
         $newString  = str_replace(".","",$newString );
@@ -64,7 +89,7 @@ class PetController extends Action {
         $pet->setDeficiencia($deficiencia);
         $pet->setRga($rga);
 
-        $pet->cadastrarPet($pet);
+        $pet->cadastrarPet();
 
         header("Location: /perfil");
 

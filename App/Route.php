@@ -43,6 +43,13 @@ class Route extends Bootstrap {
 			'action' => 'loginTutor'
 		);
 
+		$routes['logout'] = array(
+			'route' => '/logout',
+			'controller' => 'TutorController',
+			'action' => 'logoutTutor'
+		);
+
+
 		$routes['perfil'] = array(
 			'route' => '/perfil',
 			'controller' => 'TutorController',
@@ -61,6 +68,13 @@ class Route extends Bootstrap {
 			'controller' => 'PetController',
 			'action' => 'cadastrarPet'
 		);
+
+		$routes['perfilPet'] = array(
+			'route' => '/perfil_pet',
+			'controller' => 'PetController',
+			'action' => 'perfilPet'
+		);
+
 
 		// SERVICO
 		$routes['servicos'] = array(

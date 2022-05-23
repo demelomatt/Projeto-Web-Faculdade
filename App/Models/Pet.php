@@ -4,6 +4,7 @@ namespace App\Models;
 class Pet {
 
     protected $id_pet; 
+    protected $id_tutor; 
     protected $rga; 
     protected $tipo_pet; 
     protected $nome; 
@@ -121,41 +122,48 @@ class Pet {
     }
 
 
-    public function cadastrarPet($pet) {
+    public function cadastrarPet() {
      
         $query = "insert into tb_pet (id_tutor, rga, tipo_pet, nome, sexo, peso, data_nascimento, apelido, raca, cor, temperamento, castrado, deficiencia) 
         values(
             "
-            .$pet->getId_tutor().",
-            '".$pet->getRga()."',
-            '".$pet->getTipo_pet()."',
-            '".$pet->getNome()."',
-            '".$pet->getSexo()."',
-            '".$pet->getPeso()."',
-            '".$pet->getDt_nascimento()."',
-            '".$pet->getApelido()."', 
-            '".$pet->getRaca()."', 
-            '".$pet->getCor()."', 
-            '".$pet->getTemperamento()."', 
-            '".$pet->getCastrado()."', 
-            '".$pet->getDeficiencia()."'
+            .$this->getId_tutor().",
+            '".$this->getRga()."',
+            '".$this->getTipo_pet()."',
+            '".$this->getNome()."',
+            '".$this->getSexo()."',
+            '".$this->getPeso()."',
+            '".$this->getDt_nascimento()."',
+            '".$this->getApelido()."', 
+            '".$this->getRaca()."', 
+            '".$this->getCor()."', 
+            '".$this->getTemperamento()."', 
+            '".$this->getCastrado()."', 
+            '".$this->getDeficiencia()."'
         )";
 
         return $this->db->query($query)->fetchAll();
 
 }
 
-    public function getPets($idTutor) {
+    public function getPets() {
 
-        $query = "SELECT * FROM tb_pet where id_tutor= '". $idTutor ."'";
+        $query = "SELECT * FROM tb_pet where id_tutor= '". $this->getId_tutor()."'";
 
         return $this->db->query($query)->fetchAll();
     }
 
-    public function atualizarPet($pet) {
+    public function getPetById() {
+
+        $query = "SELECT * FROM tb_pet where id_tutor= ". $this->getId_tutor() ." and id_pet = " . $this->getId_pet();
+
+        return $this->db->query($query)->fetchAll();
+    }
+
+    public function atualizarPet() {
 		
         $query = sprintf("update tb_pet set rga = %s, tipo_pet = %s, nome = %s, sexo = %s, dt_nascimento = %s, apelido = %s, raca = %s, cor=%s, temperamento = %s, castrado = %s, deficiencia = %s",
-        $pet->getRga(),$pet->getTipo_pet(), $pet->getNome(), $pet->getSexo(), $pet->getDt_nascimento(), $pet->getApelido(), $pet-> getRaca(), $pet->getCor(), $pet-> getTemperamento(), $pet-> getCastrado(), $pet-> getDeficiencia() 
+        $this->getRga(),$this->getTipo_pet(), $this->getNome(), $this->getSexo(), $this->getDt_nascimento(), $this->getApelido(), $this-> getRaca(), $this->getCor(), $this-> getTemperamento(), $this-> getCastrado(), $this-> getDeficiencia() 
         );
 
 		return $this->db->query($query)->fetchAll();

@@ -4,7 +4,8 @@ class Agendamento {
 
     protected $id; 
     protected $id_pet; 
-    protected $id_servico; 
+    protected $id_tutor; 
+    protected $id_servico;
     protected $data; 
 
 	protected $db;
@@ -34,6 +35,13 @@ class Agendamento {
     	$this->id_pet = $id_pet; 
     }
 
+    public function getId_tutor() {
+    	return $this->id_tutor; 
+    }
+    public function setId_tutor($id_tutor) {
+    	$this->id_tutor = $id_tutor; 
+    }
+
     public function getData() {
     	return $this->data; 
     }
@@ -41,10 +49,10 @@ class Agendamento {
     	$this->data = $data; 
     }
 
-    public function cadastrarAgendamento($agendamento) {
+    public function cadastrarAgendamento() {
 
         // Chechar se este horário já foi agendado 
-        $query = sprintf("select data from tb_agendamento where data = " . "'".$agendamento->getData()."'");
+        $query = sprintf("select data from tb_agendamento where data = " . "'".$this->getData()."'");
         $result = $this->db->query($query)->fetchAll();
 
         // Retornar 0 se houver registros
@@ -55,28 +63,28 @@ class Agendamento {
         else{
             $query = "insert into tb_agendamento (id_pet, data) 
             values(
-                " . $agendamento->getId_pet() . ",
-                '".$agendamento->getData()."' 
+                " . $this->getId_pet() . ",
+                '".$this->getData()."' 
             )";
             return $this->db->query($query)->fetchAll();
         }
 	}
 
-    public function cadastrarServicoAgendamento($agendamento) {
+    public function cadastrarServicoAgendamento() {
 
         $query = "insert into tb_servico_agendamento (id_agendamento, id_servico) 
         values(".
-            $agendamento->getId() ."," .
-            $agendamento->getIdServico() ." 
+            $this->getId() ."," .
+            $this->getIdServico() ." 
         )";
         
         return $this->db->query($query)->fetchAll();
 	}
 
 
-    public function getAgendamentos($id_tutor) {
+    public function getAgendamentos() {
 
-        $query = "select * from vw_agendamento where id_tutor = " . $id_tutor . " ORDER BY data";
+        $query = "select * from vw_agendamento where id_tutor = " . $this->getId_tutor() . " ORDER BY data";
 
         return $this->db->query($query)->fetchAll();
     }

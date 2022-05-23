@@ -131,7 +131,6 @@
     #titulo {
       color: #CB6CE6;
       margin-bottom: 3%;
-      font-weight: bold;
     }
 
     #titulo-info {
@@ -139,11 +138,7 @@
     }
 
     .botao:hover {
-      background-color: white;
-      transition: 0.3s all;
-      color: rgb(202, 86, 223);
-      border: 3px solid rgb(202, 86, 223);
-      border-radius: 9px;
+      background-color: #d992ed;
     }
 
     .botao {
@@ -174,11 +169,11 @@
   <header>
     <nav>
       <ul>
-        <li><a href="main.html"><img src="..\img\perfil-pet\logo.png" width="250px" height="90px"></a></li>
-        <li><a href="#login.html">Login</a></li>
-        <li><a href="#">Sobre</a></li>
-        <li><a href="#">Contato</a></li>
-        <li><a href="#tela_servicos.php">Serviços</a></li>
+        <li><a href="/"><img src="../img/icons-servicos/logo.png" width="250px" height="90px"></a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/#quem-somos">Sobre</a></li>
+        <li><a href="/#contato">Contato</a></li>
+        <li><a href="/servicos">Serviços</a></li>
         <li><a id="login" href="#">Cliente Logado</a></li>
       </ul>
     </nav>
@@ -192,34 +187,39 @@
           <div class="info-geral">
             <div class="row">
               <div id="foto-pet" class="col-4">
-                <img id="foto-perfil" src="..\img\A.PNG">
+                <img id="foto-perfil" src="..\img\perfil-pet\foto-petzinho.PNG">
               </div>
               <div id="info-pet" class="col-6">
-                <div class="row">
-                  <p id="p-alinhado" name="nome_pet">Nome do Pet</p>
-                  <br>
-                  <br>
-                </div>
-                <div class="row">
-                  <p id="p-alinhado" name="id_pet">RGA: </p>
-                  <br>
-                  <br>
-                </div>
-                <div class="row">
-                  <div class="col">
-                    <p name="raca_pet">Raça</p>
+                <?php
+                foreach ($this->view->dados as $value) {
+                  echo
+                  '
+                  <div class="row">
+                    <p id="p-alinhado" name="nome_pet">Nome: ' . $value['NOME'] . '</p>
+                    <br>
+                    <br>
                   </div>
-                  <div class="col">
-                    <p name="idade_pet">Idade</p>
+                  <div class="row">
+                    <p id="p-alinhado" name="id_pet">RGA: ' . $value['RGA'] . '</p>
+                    <br>
+                    <br>
                   </div>
-                  <div class="col">
-                    <p name="sexo_pet">Sexo</p>
+                  <div class="row">
+                    <div class="col">
+                      <p name="raca_pet">Raça: ' . $value['RACA'] . '</p>
+                    </div>
+                    <div class="col">
+                      <p name="idade_pet">Idade: ' . '</p>
+                    </div>
+                    <div class="col">
+                      <p name="sexo_pet">Sexo: ' . ($value['SEXO'] == 0 ? "Masculino" : "Feminino") . '</p>
+                    </div>
+                    <br>
                   </div>
-                  <div class="col">
-                    <p name="nascimento_pet">Data de Nascimento</p>
-                  </div>
-                  <br>
-                </div>
+                  ';
+                } 
+                ?>
+
               </div>
             </div>
           </div>
@@ -227,49 +227,45 @@
         <div class="perfil-bottom">
           <h2 id="titulo">Informações Adicionais</h2>
           <div class="info-adicional">
-            <div class="row">
-              <div class="col">
-                <p id="titulo-info">Temperamento:
-                <p>
-                  <span class="span" name="temperamento_pet"></span>
+
+            <?php
+            foreach ($this->view->dados as $value) {
+
+            echo
+              '
+              <div class="row">
+                <div class="col">
+                  <p id="titulo-info">Temperamento: ' . ($value['TEMPERAMENTO'] == 0 ? "Arisco" : "Tranquilo") . '
+                  <p>
+                    <span class="span" name="temperamento_pet"></span>
+                </div>
+                <div class="col">
+                  <p id="titulo-info">Deficiência: '. ($value['DEFICIENCIA'] == 0 ? "Não" : "Sim") . '</p>
+                  <span class="span" name="deficiencia_pet"></span>
+                </div>
               </div>
-              <div class="col">
-                <p id="titulo-info">Deficiência</p>
-                <span class="span" name="deficiencia_pet"></span>
+              <div class="row">
+                <div class="col">
+                  <p id="titulo-info">Castrado: ' . ($value['CASTRADO'] == 0 ? "Não" : "Sim")  .  '
+                  <p>
+                    <span class="span" name="castrado_pet"></span>
+                </div>
+                <div class="col">
+                  <p id="titulo-info">Cor: ' . $value['COR'] .'</p>
+                  <span class="span" name="cor_pet"></span>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <p id="titulo-info">Castrado:
-                <p>
-                  <span class="span" name="castrado_pet"></span>
+              <div class="row">
+                <p id="titulo-info">Observações:</p>
+                <span class="span" name="obs_pet"></span>
               </div>
-              <div class="col">
-                <p id="titulo-info">Cor</p>
-                <span class="span" name="cor_pet"></span>
-              </div>
-            </div>
-            <div class="row">
-              <p id="titulo-info">Observações:</p>
-              <span class="span" name="obs_pet"></span>
-            </div>
+              ';
+            }
+            ?>
+
             <div class="row justify-content-center">
               <div class="col-auto">
-              <table style="width:100%">
-                  <tr>
-                    <td>
-                      <p class="options">
-                        <button id="titulo-info" class="botao">Atualizar</button>
-                      </p>
-                    </td>
-                    <td>
-                      <p class="options">
-                        <button id="titulo-info" class="botao">Excluir </button>
-                      </p>
-                    </td>
-                  </tr>
-                </table>
-
+                <button id="titulo-info" class="botao">Atualizar</button>
               </div>
             </div>
           </div>

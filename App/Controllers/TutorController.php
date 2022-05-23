@@ -59,7 +59,7 @@ class TutorController extends Action {
         $tutor->setNumeroEndereco($numeroEndereco);
         $tutor->setComplementoEndereco($complementoEndereco);
 
-        $result = $tutor->cadastrarTutor($tutor);
+        $result = $tutor->cadastrarTutor();
 
         if ($result == 0){
             
@@ -93,7 +93,7 @@ class TutorController extends Action {
 
         $tutor->setEmail($email);
         $tutor->setSenha($senha);
-        $result = $tutor->loginTutor($tutor);
+        $result = $tutor->loginTutor();
 
 
    
@@ -111,6 +111,12 @@ class TutorController extends Action {
         
     }
 
+    public function logoutTutor(){
+        $tutor = Container::getModel('Tutor');
+        $tutor->logOut();
+        header("Location: /");
+    }
+
     public function perfilTutor() {
 
         session_start();
@@ -120,11 +126,12 @@ class TutorController extends Action {
             $agendamento = Container::getModel('Agendamento');
 
             $registroTutor = $tutor->getTutor($_SESSION["user"]);
-            $pets = $pet->getPets($_SESSION["user"]);
-            $agendamentos = $agendamento->getAgendamentos($_SESSION["user"]);
+            $pet->setId_tutor($_SESSION["user"]);
+            $pets = $pet->getPets();
+            $agendamento->setId_tutor($_SESSION["user"]);
+            $agendamentos = $agendamento->getAgendamentos();
 
             $this->view->dados = array($registroTutor, $pets, $agendamentos);
-  
   
             $this->render('perfilTutor', '');
 

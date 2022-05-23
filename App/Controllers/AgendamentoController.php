@@ -16,8 +16,9 @@ class AgendamentoController extends Action {
             $pet = Container::getModel('Pet');
     
             $servicos = $servico ->getServicos();
-            $pets = $pet->getPets($_SESSION["user"]);
-            
+
+            $pet->setId_tutor ($_SESSION["user"]);
+            $pets = $pet->getPets();
             
             $this->view->dados = array($servicos, $pets);
     
@@ -38,7 +39,7 @@ class AgendamentoController extends Action {
         $agendamento->setData($date);
         $agendamento->setIdServico($servico_id);
 
-        $result = $agendamento->cadastrarAgendamento($agendamento);
+        $result = $agendamento->cadastrarAgendamento();
 
         if ($result == 0){
             
@@ -48,7 +49,7 @@ class AgendamentoController extends Action {
 
         else{
 
-            $result = $agendamento->cadastrarServicoAgendamento($agendamento);
+            $result = $agendamento->cadastrarServicoAgendamento();
             header("Location:/perfil");
         }
 
