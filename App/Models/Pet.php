@@ -15,7 +15,7 @@ class Pet {
     protected $temperamento; 
     protected $castrado; 
     protected $deficiencia;
-
+    protected $peso;
 	protected $db;
 
 	public function __construct(\PDO $db) {
@@ -27,6 +27,13 @@ class Pet {
     }
     public function setId_pet($id_pet) {
     	$this->id_pet = $id_pet; 
+    }
+
+    public function getId_tutor() {
+    	return $this->id_tutor; 
+    }
+    public function setId_tutor($id_tutor) {
+    	$this->id_tutor = $id_tutor; 
     }
 
     public function getRga() {
@@ -106,14 +113,25 @@ class Pet {
     	$this->deficiencia = $deficiencia; 
     }
 
-       public function cadastrarPet($pet) {
+    public function getPeso() {
+    	return $this->peso; 
+    }
+    public function setPeso($peso) {
+    	$this->peso = $peso; 
+    }
 
-        $query = "insert into tb_pet (rga, tipo_pet, nome, sexo, data_nascimento, apelido, raca, cor, temperamento, castrado, deficiencia) 
+
+    public function cadastrarPet($pet) {
+     
+        $query = "insert into tb_pet (id_tutor, rga, tipo_pet, nome, sexo, peso, data_nascimento, apelido, raca, cor, temperamento, castrado, deficiencia) 
         values(
+            "
+            .$pet->getId_tutor().",
             '".$pet->getRga()."',
             '".$pet->getTipo_pet()."',
             '".$pet->getNome()."',
             '".$pet->getSexo()."',
+            '".$pet->getPeso()."',
             '".$pet->getDt_nascimento()."',
             '".$pet->getApelido()."', 
             '".$pet->getRaca()."', 
@@ -122,11 +140,17 @@ class Pet {
             '".$pet->getCastrado()."', 
             '".$pet->getDeficiencia()."'
         )";
-        
+
         return $this->db->query($query)->fetchAll();
 
+}
 
-	}
+    public function getPets($idTutor) {
+
+        $query = "SELECT * FROM tb_pet where id_tutor= '". $idTutor ."'";
+
+        return $this->db->query($query)->fetchAll();
+    }
 
     public function atualizarPet($pet) {
 		

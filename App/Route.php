@@ -34,7 +34,7 @@ class Route extends Bootstrap {
 		$routes['telaLogin'] = array(
 			'route' => '/login',
 			'controller' => 'TutorController',
-			'action' => 'renderizarLogin'
+			'action' => 'perfilTutor'
 		);
 
 		$routes['logar'] = array(
@@ -51,15 +51,22 @@ class Route extends Bootstrap {
 
 		// PET
 		$routes['cadastroPet'] = array(
-			'route' => '/cadastrar_pet',
+			'route' => '/cadastroPet',
 			'controller' => 'PetController',
 			'action' => 'renderizar'
 		);
 
-		$routes['cadastrarTutor'] = array(
-			'route' => '/cadastrar',
-			'controller' => 'TutorController',
-			'action' => 'cadastrarTutor'
+		$routes['cadastrarPet'] = array(
+			'route' => '/cadastrarPet',
+			'controller' => 'PetController',
+			'action' => 'cadastrarPet'
+		);
+
+		// SERVICO
+		$routes['servicos'] = array(
+			'route' => '/servicos',
+			'controller' => 'ServicoController',
+			'action' => 'renderizar'
 		);
 
 

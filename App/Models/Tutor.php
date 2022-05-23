@@ -176,9 +176,6 @@ class Tutor {
 		return $this->db->query($query)->fetchAll();
 	}
 
-    
-
-
     public function loginTutor($tutor) {
 
         $query = "SELECT * FROM tb_tutor where email= '". $tutor->getEmail() . "'and senha ='" .$tutor->getSenha() ."'";

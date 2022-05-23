@@ -69,14 +69,20 @@ class TutorController extends Action {
 
         else{
             // iniciar sessão e ir para tela de cadastro do pet se cadastro é válido
-            $tutor->iniciarSessao("cadastrar_pet");
+            $tutor->iniciarSessao("cadastro_pet");
         }
 
     }
 
     public function renderizarLogin() {
+
+		if(isset($_SESSION["user"])){
+            $this->perfilTutor();
+        }
+        else{
+            $this->render('loginTutor', '');
+        }
 		
-		$this->render('loginTutor', '');
 	}
 
     public function loginTutor() {
@@ -105,12 +111,19 @@ class TutorController extends Action {
     public function perfilTutor() {
 
         session_start();
-        if($_SESSION["user"]){
+        if(isset($_SESSION["user"])){
             $tutor = Container::getModel('Tutor');
+            $pet = Container::getModel('Pet');
+
             $registroTutor = $tutor->getTutor($_SESSION["user"]);
-            $this->view->dados = $registroTutor;
+            $pets = $pet->getPets($_SESSION["user"]);
             
-           $this->render('perfilTutor', '');
+            
+            $this->view->dados = array($registroTutor, $pets);
+  
+  
+            $this->render('perfilTutor', '');
+
         }
         else{
             $this->renderizarLogin();

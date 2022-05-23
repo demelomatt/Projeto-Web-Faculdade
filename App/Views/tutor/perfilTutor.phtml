@@ -180,10 +180,10 @@
     <nav>
       <ul>
         <li><a href="#"><img src="..\img\perfil-tutor\logo.png" width="250px" height="90px"></a></li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="/login">Login</a></li>
         <li><a href="#">Sobre</a></li>
         <li><a href="#">Contato</a></li>
-        <li><a href="tela_servicos.php">Serviços</a></li>
+        <li><a href="/servicos">Serviços</a></li>
         <li><a id="login" href="#">Cliente Logado</a></li>
       </ul>
     </nav>
@@ -199,13 +199,12 @@
           <div class="info-geral">
           
             <?php
-            //var_dump($this->view->dados);
-            foreach($this->view->dados as $indice => $tutor) {
+              $tutor = $this->view->dados[0][0];
               echo
               '
               <div class="row">
                 <div class="col">
-                  <p name="nome_tutor">'. $tutor["NOME"] .'</p>
+                  <p name="nome_tutor">'. $tutor['NOME'] .'</p>
                 </div>
                 <div class="col">
                   <p name="cpf_tutor">'. $tutor["CPF"] .'</p>
@@ -223,7 +222,7 @@
                 <p name="email_tutor">'. $tutor["EMAIL"] .'</p>
               </div>
               ';
-            }
+      
             ?>
       
 
@@ -234,7 +233,7 @@
                   <tr>
                     <td>
                       <p class="options">
-                        <button id="titulo-info" class="botao">Atualizar</button>
+                        <button onclick="location.href='http://www.example.com'" id="titulo-info" class="botao">Atualizar</button>
                       </p>
                     </td>
                     <td>
@@ -258,17 +257,28 @@
               </td>
               <td>
                 <p class="options">
-                  <button id="titulo-info" class="botao">Novo</button>
+                  <button onclick="location.href='/cadastroPet'" id="titulo-info" class="botao">Novo</button>
+  
                 </p>
               </td>
             </tr>
-            <td>
-              <div id="foto-pet" class="col-4">
-                <span name="foto_pet"><img id="foto-perfil" src="..\img\perfil-pet\foto-petzinho.PNG"></span>
-                <span name="nome_pet">Pipoca</span>
-              </div>
-            </td>
+            <?php
+            $arrPets = $this->view->dados[1];
+            foreach ($arrPets  as $pet) {
+              echo 
+              '
+              <td>
+                <div id="foto-pet" class="col-4">
+                  <span name="foto_pet"><img id="foto-perfil" src="..\img\perfil-pet\foto-petzinho.PNG"></span>
+                  <span name="nome_pet">'. $pet['NOME']. '</span>
+                </div>
+              </td>
+              ';
+              }
+
+            ?>
             </tr>
+            
         </div>
         </table>
         <br><br><br><br>
