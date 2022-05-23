@@ -46,7 +46,7 @@
 
     header {
       grid-area: a;
-      background-image: url(../img/perfil-pet/canto-direito.png);
+      background-image: url(../img/icons-servicos/canto-direito.png);
       background-repeat: no-repeat;
       background-size: 600px 300px;
       background-position: right;
@@ -125,7 +125,6 @@
     #titulo {
       color: #CB6CE6;
       margin-bottom: 3%;
-      font-weight: bold;
     }
 
     #titulo-info {
@@ -133,11 +132,7 @@
     }
 
     .botao:hover {
-      background-color: white;
-      transition: 0.3s all;
-      color: rgb(202, 86, 223);
-      border: 3px solid rgb(202, 86, 223);
-      border-radius: 9px;
+      background-color: #d992ed;
     }
 
     .botao {
@@ -179,17 +174,15 @@
   <header>
     <nav>
       <ul>
-        <li><a href="#"><img src="..\img\perfil-tutor\logo.png" width="250px" height="90px"></a></li>
+        <li><a href="/"><img src="..\img\perfil-tutor\logo.png" width="250px" height="90px"></a></li>
         <li><a href="/login">Login</a></li>
-        <li><a href="#">Sobre</a></li>
-        <li><a href="#">Contato</a></li>
+        <li><a href="/#quem-somos">Sobre</a></li>
+        <li><a href="/#contato">Contato</a></li>
         <li><a href="/servicos">Serviços</a></li>
         <li><a id="login" href="#">Cliente Logado</a></li>
       </ul>
     </nav>
   </header>
-
-
 
   <section>
     <div class="main">
@@ -197,56 +190,47 @@
         <div class="perfil-top">
           <h2 id="titulo">Informações Gerais</h2>
           <div class="info-geral">
-          
-            <?php
+
+          <?php
               $tutor = $this->view->dados[0][0];
               echo
               '
               <div class="row">
                 <div class="col">
-                  <p name="nome_tutor">'. $tutor['NOME'] .'</p>
+                  <p name="nome_tutor">Nome: '. $tutor['NOME'] .'</p>
                 </div>
                 <div class="col">
-                  <p name="cpf_tutor">'. $tutor["CPF"] .'</p>
+                  <p name="cpf_tutor">CPF: '. $tutor["CPF"] .'</p>
                 </div>
               </div>
+
               <div class="row">
                 <div class="col">
-                  <p name="endereco_tutor">'. $tutor["LOGRADOURO"] . ' ' . $tutor["NUMERO"] .'</p>
+                  <p name="endereco_tutor">Endereço: '. $tutor["LOGRADOURO"] . ' ' . $tutor["NUMERO"] .'</p>
                 </div>
                 <div class="col">
-                  <p name="telefone_tutor">'. $tutor["CELULAR"] .'</p>
+                  <p name="telefone_tutor">Celular: '. $tutor["CELULAR"] .'</p>
                 </div>
               </div>
+
               <div class="row">
-                <p name="email_tutor">'. $tutor["EMAIL"] .'</p>
+                <p name="email_tutor">Email: '. $tutor["EMAIL"] .'</p>
               </div>
               ';
-      
-            ?>
-      
 
+            ?>
 
             <div class="row justify-content-center">
               <div class="col-auto">
-                <table style="width:100%">
-                  <tr>
-                    <td>
-                      <p class="options">
-                        <button onclick="location.href='http://www.example.com'" id="titulo-info" class="botao">Atualizar</button>
-                      </p>
-                    </td>
-                    <td>
-                      <p class="options">
-                        <button id="titulo-info" class="botao">Excluir conta</button>
-                      </p>
-                    </td>
-                  </tr>
-                </table>
+                <button id="titulo-info" class="botao">Atualizar</button>
+              </div>
+              <div class="col-auto">
+                <button id="titulo-info" class="botao">Excluir Conta</button>
               </div>
             </div>
           </div>
         </div>
+
         <div class="perfil-middle">
           <table >
             <tr>
@@ -257,8 +241,7 @@
               </td>
               <td>
                 <p class="options">
-                  <button onclick="location.href='/cadastroPet'" id="titulo-info" class="botao">Novo</button>
-  
+                  <button onclick="location.href='/cadastro_pet'" id="titulo-info" class="botao">Novo</button>
                 </p>
               </td>
             </tr>
@@ -282,13 +265,17 @@
         </div>
         </table>
         <br><br><br><br>
+
         <div class="perfil-bottom">
           <h2 id="titulo">Histórico de Agendamentos</h2>
           <div class="info-adicional">
             <div class="row">
               <p id="titulo-info">Pesquise pelo nome do pet</p>
-              <div class="pesquisa">
+
+              <div class="col">
                 <input class="pesquisa" type="text" name="pesquisa_valor"></input>
+              </div>
+              <div class="col">
                 <img src="..\img\perfil-tutor\lupa.png" style="height:30px">
               </div>
             </div>
@@ -315,7 +302,6 @@
           </div>
         </div>
   </section>
- 
   <footer>
     <!-- <img src="perfil-pet\canto-esquerdo.png" height="300px" width="600px"> -->
   </footer>

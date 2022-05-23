@@ -51,13 +51,13 @@ class Route extends Bootstrap {
 
 		// PET
 		$routes['cadastroPet'] = array(
-			'route' => '/cadastroPet',
+			'route' => '/cadastro_pet',
 			'controller' => 'PetController',
 			'action' => 'renderizar'
 		);
 
 		$routes['cadastrarPet'] = array(
-			'route' => '/cadastrarPet',
+			'route' => '/cadastrar_pet',
 			'controller' => 'PetController',
 			'action' => 'cadastrarPet'
 		);
