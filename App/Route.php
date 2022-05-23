@@ -69,6 +69,20 @@ class Route extends Bootstrap {
 			'action' => 'renderizar'
 		);
 
+		// AGENDAMENTO
+		$routes['agendamento'] = array(
+			'route' => '/agendamento',
+			'controller' => 'AgendamentoController',
+			'action' => 'renderizar'
+		);
+
+		$routes['agendar'] = array(
+			'route' => '/agendar',
+			'controller' => 'AgendamentoController',
+			'action' => 'agendar'
+		);
+
+
 
 
 		$this->setRoutes($routes);

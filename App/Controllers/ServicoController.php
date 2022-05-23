@@ -10,8 +10,13 @@ use MF\Model\Container;
 class ServicoController extends Action {
 
 	public function renderizar() {
-           $this->render('servico', '');
+		$servico = Container::getModel('Servico');
+
+		$servicos = $servico ->getServicos();
+		$this->view->dados = $servicos;
+		$this->render('servico', '');
 	}
+
 }
 
 

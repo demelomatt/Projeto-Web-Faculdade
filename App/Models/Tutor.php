@@ -45,7 +45,6 @@ class Tutor {
         $output =  $this->db->query($query)->fetchAll();
         $id = $output[0]['id_tutor'];
         return $id;
-
     }
 
     public function getCpf() {

@@ -95,7 +95,8 @@ class TutorController extends Action {
         $tutor->setSenha($senha);
         $result = $tutor->loginTutor($tutor);
 
-                
+
+   
         // Se usuário e senha existem, então iniciar sessão e ir para tela de perfil
         if ($result){
             $tutor->iniciarSessao("perfil");
@@ -104,7 +105,9 @@ class TutorController extends Action {
 
         else{
             $this->renderizarLogin();
+
         }
+   
         
     }
 
@@ -114,12 +117,13 @@ class TutorController extends Action {
         if(isset($_SESSION["user"])){
             $tutor = Container::getModel('Tutor');
             $pet = Container::getModel('Pet');
+            $agendamento = Container::getModel('Agendamento');
 
             $registroTutor = $tutor->getTutor($_SESSION["user"]);
             $pets = $pet->getPets($_SESSION["user"]);
-            
-            
-            $this->view->dados = array($registroTutor, $pets);
+            $agendamentos = $agendamento->getAgendamentos($_SESSION["user"]);
+
+            $this->view->dados = array($registroTutor, $pets, $agendamentos);
   
   
             $this->render('perfilTutor', '');

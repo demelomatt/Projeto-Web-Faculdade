@@ -197,6 +197,7 @@
       </ul>
     </nav>
   </header>
+  
   <section>
     <div class="mae-bloco">
       <div class="bloco">
@@ -208,6 +209,9 @@
             <p>Para agendar clique no serviço desejado e siga as instruções.</p>
           </div>
         </div>
+        <?php
+        echo
+        '
         <div class="banho">
           <div class="bloco-banho">
             <div class="conteudo">
@@ -215,31 +219,42 @@
                 <!-- <img src="https://static.thenounproject.com/png/989967-200.png" width="80px" height="80px"> -->
                 <img src="../img/icons-servicos/dog.png" width="80px" height="80px">
               </div>
+
               <div class="descricao">
                 <div class="titulo">
-                  <p>Banho e Tosa</p>
+                  <p>'.$this->view->dados[0]["NOME"].'</p>
                 </div>
                 <div class="texto">
-                  <p>Pro seu pet ficar limpinho e cheirosinho</p>
+                  <p>'.$this->view->dados[0]["DESCRICAO"].'</p>
+                </div>
+                <div class="titulo">
+                  <p> R$ '.$this->view->dados[0]["VALOR"].'</p>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
+
         <div class="daycare">
           <div class="bloco-daycare">
             <div class="conteudo">
               <div class="img">
                 <img src="../img/icons-servicos/pet-house.png" width="80px" height="80px">
               </div>
+
               <div class="descricao">
-                <div class="titulo">
-                  <p>Day Care</p>
-                </div>
-                <div class="texto">
-                  <p>Muito mais aconchegante que uma creche comum</p>
-                </div>
+              <div class="titulo">
+                <p>'.$this->view->dados[1]["NOME"].'</p>
               </div>
+              <div class="texto">
+                <p>'.$this->view->dados[1]["DESCRICAO"].'</p>
+              </div>
+              <div class="titulo">
+                <p> R$ '.$this->view->dados[1]["VALOR"].'</p>
+              </div>
+            </div>
+              
             </div>
           </div>
         </div>
@@ -249,14 +264,19 @@
               <div class="img">
                 <img src="../img/icons-servicos/walking-the-dog.png" width="80px" height="80px">
               </div>
+
               <div class="descricao">
-                <div class="titulo">
-                  <p>Pet Walker</p>
-                </div>
-                <div class="texto">
-                  <p>Porque passear é uma delícia</p>
-                </div>
+              <div class="titulo">
+                <p>'.$this->view->dados[2]["NOME"].'</p>
               </div>
+              <div class="texto">
+                <p>'.$this->view->dados[2]["DESCRICAO"].'</p>
+              </div>
+              <div class="titulo">
+                <p> R$ '.$this->view->dados[2]["VALOR"].'</p>
+              </div>
+            </div>
+
             </div>
           </div>
         </div>
@@ -267,13 +287,16 @@
                 <img src="../img/icons-servicos/dog-house.png" width="80px" height="80px">
               </div>
               <div class="descricao">
-                <div class="titulo">
-                  <p>Pet Sitter</p>
-                </div>
-                <div class="texto">
-                  <p>Cuidamos do seu pet com amor e carinho</p>
-                </div>
+              <div class="titulo">
+                <p>'.$this->view->dados[3]["NOME"].'</p>
               </div>
+              <div class="texto">
+                <p>'.$this->view->dados[3]["DESCRICAO"].'</p>
+              </div>
+              <div class="titulo">
+                <p> R$ '.$this->view->dados[3]["VALOR"].'</p>
+              </div>
+            </div>
             </div>
           </div>
         </div>
@@ -283,14 +306,19 @@
               <div class="img">
                 <img src="../img/icons-servicos/veterinarian.png" width="80px" height="80px">
               </div>
+
               <div class="descricao">
-                <div class="titulo">
-                  <p>Consulta Veterinária</p>
-                </div>
-                <div class="texto">
-                  <p>Profissionairs prontos para tratar o seu pet</p>
-                </div>
+              <div class="titulo">
+                <p>'.$this->view->dados[4]["NOME"].'</p>
               </div>
+              <div class="texto">
+                <p>'.$this->view->dados[4]["DESCRICAO"].'</p>
+              </div>
+              <div class="titulo">
+                <p> R$ '.$this->view->dados[4]["VALOR"].'</p>
+              </div>
+            </div>
+
             </div>
           </div>
         </div>
@@ -300,17 +328,27 @@
               <div class="img">
                 <img src="../img/icons-servicos/hotel.png" width="80px" height="80px">
               </div>
+
               <div class="descricao">
-                <div class="titulo">
-                  <p>Hospedagem</p>
-                </div>
-                <div class="texto">
-                  <p>Seu pet como um membro da família</p>
-                </div>
+              <div class="titulo">
+                <p>'.$this->view->dados[5]["NOME"].'</p>
               </div>
+              <div class="texto">
+                <p>'.$this->view->dados[5]["DESCRICAO"].'</p>
+              </div>
+              <div class="titulo">
+                <p> R$ '.$this->view->dados[5]["VALOR"].'</p>
+              </div>
+            </div>
+
             </div>
           </div>
         </div>
+        '
+        ;
+        ?>
+
+
       </div>
     </div>
   </section>

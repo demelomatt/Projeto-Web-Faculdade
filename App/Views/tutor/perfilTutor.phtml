@@ -279,6 +279,7 @@
                 <img src="..\img\perfil-tutor\lupa.png" style="height:30px">
               </div>
             </div>
+            
             <div id="table" class="row">
               <table class="table table-striped">
                 <thead>
@@ -290,12 +291,22 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Lulu</td>
-                    <td>Banho e tosa</td>
-                    <td>12/04/2022 15:30:00</td>
-                    <td>Agendado</td>
-                  </tr>
+                  
+                  <?php
+                    $agendamentos = $this->view->dados[2];
+                    foreach ($agendamentos  as $agenda) {
+                      echo
+                      '
+                      <tr>
+                        <td>'.$agenda['PET'].'</td>
+                        <td>'.$agenda['SERVICO'].'</td>
+                        <td>'.date("d/m/Y H:i",strtotime($agenda['DATA'])).'</td>
+                        <td>Agendado</td>
+                      </tr>
+                      ';
+                    }
+                  ?>
+
                 </tbody>
               </table>
             </div>
