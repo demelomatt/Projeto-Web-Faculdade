@@ -1,168 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible"
-    content="IE=edge">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="icon" href="../img/Imagem1.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="icon" href="../img/Imagem1.png">
 </head>
+
 <body>
-    <br>
+  <br>
 
-    <header>
-      <nav>
-        <ul>
-          <li><a href="/"><img src="..\img\perfil-tutor\logo.png" width="250px" height="90px"></a></li>
-          <li><a href="/login">Login</a></li>
-          <li><a href="/#quem-somos">Sobre</a></li>
-          <li><a href="/#contato">Contato</a></li>
-          <li><a href="/servicos">Serviços</a></li>
-          <li><a id="login" href="#">Cliente Logado</a></li>
-        </ul>
-      </nav>
-    </header>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/"><img src="../img/icons-servicos/logo.png" width="250px" height="90px"></a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="/#quem-somos">Sobre</a></li>
+        <li><a href="/#contato">Contato</a></li>
+        <li><a href="/servicos">Serviços</a></li>
+        <li><a id="login" href="#">Cliente Logado</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <style>
-    body{
-    font-family: 'League Spartan', sans-serif;
-    font-size: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    background-image: url("../img/teste.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color:#0C4271;
+  <style>
+    body {
+      font-family: 'League Spartan', sans-serif;
+      margin-left: auto;
+      margin-right: auto;
+      background-image: url("../img/teste.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-color: #0C4271;
 
-}
-li {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
+    }
 
-li a {
-  text-decoration: none;
-  color: #555455;
-}
+    li {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
 
-li a:hover {
-  color: #CB6CE6;
-  font-weight: bold;
-}
+    li a {
+      text-decoration: none;
+      color: #555455;
+    }
 
-#login {
-  color: #FFFFFF;
-}
+    li a:hover {
+      color: #CB6CE6;
+      font-weight: bold;
+    }
 
-ul {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-right: 3%;
-}
-.principal{
-    width: 350px;
-    height: 500px;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border: 7px solid rgb(236, 233, 233);
-    border-radius: 30px;
-    margin: auto;
+    #login {
+      color: #FFFFFF;
+    }
 
-}
+    ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-right: 3%;
+    }
 
-/* header{
+    .principal {
+      width: 700px;
+      height: 1000px;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      margin: auto;
+
+    }
+
+    .main {
+      width: 400px;
+      height: 500px;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border: 7px solid rgb(236, 233, 233);
+      border-radius: 30px;
+      margin: auto;
+
+    }
+
+    /* header{
     align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding-left: 10px;
+
 }
+
 a{
     color: rgb(112, 111, 111);
     font-weight: bold;
     font-size: 20px;
 }
+
 a:hover{
     color:rgb(202, 86, 223);
     font-weight: bold;
     transition: 0.3s all;
 }
+
 li{
     display: inline-block;
     margin: 20px;
 } */
 
 
-input{
-    height: 10px;
-    padding: 15px;
-    border-radius: 9px;
-    font-size: 15px;
-    color: rgb(202, 86, 223);
-}
+    input {
+      height: 10px;
+      padding: 15px;
+      border-radius: 9px;
+      font-size: 15px;
+      color: rgb(202, 86, 223);
+    }
 
-.titulo{
-    color: rgb(202, 86, 223);
-    font-size: 40px;
-    font-weight:bold;
-}
+    .titulo {
+      color: rgb(202, 86, 223);
+      font-size: 40px;
+      font-weight: bold;
+      align-items: center;
+      justify-content: center;
 
-
-form [type="submit"]{
-    height: 45px;
-    width: 150px;
-    background-color: rgb(202, 86, 223);
-    color: white;
-    font-weight: bold;
-    border: 9px;
-    cursor: pointer;
-    font-size: 20;
-}
-
-form [type="submit"]:hover{
-    background-color: white;
-    transition: 0.3s all;
-    color: rgb(202, 86, 223);
-    border: 3px solid rgb(202, 86, 223);
-    border-radius: 9px;
-}
-
-.link{
-    color: #0C4271;
-}
+    }
 
 
+    form [type="submit"] {
+      height: 45px;
+      width: 150px;
+      background-color: rgb(202, 86, 223);
+      color: white;
+      font-weight: bold;
+      border: 9px;
+      cursor: pointer;
+      font-size: 20;
+    }
 
-    </style>
+    form [type="submit"]:hover {
+      background-color: white;
+      transition: 0.3s all;
+      color: rgb(202, 86, 223);
+      border: 3px solid rgb(202, 86, 223);
+      border-radius: 9px;
 
-    <br><br><br><br><br><br><br><br>
-    <div class="principal">
-        <h1 class="titulo"> Login </h1> <br>
-        <form action = "/logar" method="post">
-        <p >
-        Usuário:<br><br>
-        <input type="text" name="txtusuario">
+
+    }
+
+    .link {
+      color: #0C4271;
+    }
+  </style>
+
+  <br><br><br><br><br><br> <br><br><br><br><br><br>
+  <div class="principal">
+    <div class="main">
+      <br><br>
+      <h1 class="titulo"> Login </h1> <br>
+      <form action="/logar" method="post">
+
+        <p>
+          Usuário:<br><br>
+          <input type="text" name="txtusuario">
         </p>
         <p>
-        Senha:<br><br>
-        <input type="password" name="txtsenha">
+          Senha:<br><br>
+          <input type="password" name="txtsenha">
         </p>
         <p><br>
-        <input type="submit" value="Acessar" >
+          <input type="submit" value="Acessar">
         </p>
-</form><br><br>
+      </form><br><br>
       <p> Ainda não possui uma conta? <a href="/cadastro" class="link">Clique aqui!</a></p>
     </div>
-
+  </div>
 
 
 </body>
+
 </html>
