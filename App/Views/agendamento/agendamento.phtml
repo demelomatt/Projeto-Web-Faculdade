@@ -13,22 +13,18 @@
     <br>
 
     <header>
-        <img src="../img/logo.png" alt="heicao" width="300px">
-        <ul>
-            <a href="login.html">
-                <li>Login</li>
-            </a>
-            <a href="tela_servicos.php">
-                <li>Serviços</li>
-            </a>
-            <a href="#">
-                <li>Sobre</li>
-            </a>
-            <a href="#">
-                <li>Contato</li>
-            </a>
-        </ul>
+        <nav>
+            <ul>
+                <li><a href="/"><img src="../img/icons-servicos/logo.png" width="250px" height="90px"></a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/#quem-somos">Sobre</a></li>
+                <li><a href="/#contato">Contato</a></li>
+                <li><a href="/servicos">Serviços</a></li>
+                <li><a id="login" href="#">Cliente Logado</a></li>
+            </ul>
+        </nav>
     </header>
+
 
     <style>
         body {
@@ -38,7 +34,6 @@
             background-image: url("../img/teste.png");
             background-repeat: no-repeat;
             background-size: cover;
-            background-color: #0C4271;
 
         }
 
@@ -54,30 +49,35 @@
 
         }
 
-        header {
-            align-items: center;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            padding-left: 10px;
-
-        }
-
-        a {
-            color: rgb(112, 111, 111);
-            font-weight: bold;
-            font-size: 20px;
-        }
-
-        a:hover {
-            color: rgb(202, 86, 223);
-            font-weight: bold;
-            transition: 0.3s all;
-        }
-
         li {
-            display: inline-block;
-            margin: 20px;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li a {
+            text-decoration: none;
+            color: #555455;
+        }
+
+        li a:hover {
+            color: #CB6CE6;
+            font-weight: bold;
+        }
+
+        #login {
+            color: #FFFFFF;
+        }
+
+        ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-right: 3%;
+        }
+
+        header {
+            grid-area: a;
         }
 
 
@@ -140,23 +140,22 @@
         <form action="/agendar" method="post">
             <br>
             <table style="width:100%">
-            <?php
-            echo
-            '
+                <?php
+                echo
+                '
                 <tr>
                     <td>
                         <p>
                             <b>Serviço:</b><br><br>
                             <select size="1" class="menu" id="menu_servicos" name="servico">
                                 <option id="selected"></option>';
-                                $servico = $this->view->dados[0];
-                                foreach ($servico  as $value) {
-                                    echo
-                                    '<option value= "'. $value['ID_SERVICO'] . '">'. $value['NOME'] .'</option>'
-                                    ;
-                                  }
-                            echo
-                            '</select>
+                $servico = $this->view->dados[0];
+                foreach ($servico  as $value) {
+                    echo
+                    '<option value= "' . $value['ID_SERVICO'] . '">' . $value['NOME'] . '</option>';
+                }
+                echo
+                '</select>
                         </p>
                     </td>
                     <td>
@@ -164,20 +163,18 @@
                             <b>Pet:</b><br><br>
                             <select size="1" class="menu" id="menu_pet" name="pet">
                                 <option value></option> /*deixar essa em branco*';
-                                $pets = $this->view->dados[1];
-                                foreach ($pets  as $value) {
-                                    echo
-                                    '<option value= "'. $value['ID_PET'] . '">'. $value['NOME'] .'</option>'
-                                    ;
-                                  }
-                                echo 
-                                '
+                $pets = $this->view->dados[1];
+                foreach ($pets  as $value) {
+                    echo
+                    '<option value= "' . $value['ID_PET'] . '">' . $value['NOME'] . '</option>';
+                }
+                echo
+                '
                             </select>
                         </p>
                     </td>
                 </tr>
-                '
-                ;
+                ';
                 ?>
                 <tr>
                     <td>
@@ -189,7 +186,7 @@
                             <input type="date" id="birthday" name="date" placeholder="dd-mm-yyyy" min=' . '"' . date("Y-m-d") . '"' . 'max=' . '"' . date("Y") . '-12-31">
                             ';
                             ?>
-                                
+
                         </p>
                     </td>
                     <td>
@@ -222,4 +219,5 @@
             </p>
     </div>
 </body>
+
 </html>

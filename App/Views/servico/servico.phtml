@@ -70,7 +70,9 @@
       grid-template-areas: "g g"
         "a b"
         "c d"
-        "e f";
+        "e f"
+        "x x"
+        ;
       grid-gap: 5%;
     }
     /*.conteudo-servicos{
@@ -184,6 +186,33 @@
       height: 90%;
       padding: 2%;
     }
+
+    .botao:hover {
+      background-color: #d992ed;
+    }
+
+    .botao {
+      margin-top: 5%;
+      margin-right: 5%;
+      margin-bottom: 5%;
+      margin-left: 5%;
+      border-radius: 5px;
+      background-color: #CB6CE6;
+      color: #FFFFFF;
+      width: 120px;
+      height: 35px;
+      border: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .buttonf{
+      grid-area:x;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
   </style>
   <header>
     <nav>
@@ -347,6 +376,9 @@
         '
         ;
         ?>
+        <div class="buttonf">
+          <button id="titulo-info" class="botao" onclick="location.href = '/agendamento';">Novo</button>
+        </div>
 
 
       </div>

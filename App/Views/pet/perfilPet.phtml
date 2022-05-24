@@ -187,7 +187,15 @@
           <div class="info-geral">
             <div class="row">
               <div id="foto-pet" class="col-4">
-                <img id="foto-perfil" src="..\img\perfil-pet\foto-petzinho.PNG">
+                <?php
+                foreach ($this->view->dados as $value) {
+                  echo
+                  '
+                  <img id="foto-perfil"' . ($value["TIPO_PET"] == 0 ? 'src="..\img\perfil-pet\foto-petzinho.PNG"' : 'src="..\img\perfil-pet\foto-gatinho.PNG"') . '>
+                  ';
+                  }
+                ?>
+                
               </div>
               <div id="info-pet" class="col-6">
                 <?php
