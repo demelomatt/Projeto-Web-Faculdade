@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento de Serviços</title>
+    <link rel="icon" href="../img/Imagem1.png">
+</head>
+
+<body>
+    <br>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/"><img src="../img/icons-servicos/logo.png" width="250px" height="90px"></a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/#quem-somos">Sobre</a></li>
+                <li><a href="/#contato">Contato</a></li>
+                <li><a href="/servicos">Serviços</a></li>
+                <li><a id="login" href="#">Cliente Logado</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <style>
+        body {
+            font-family: 'League Spartan', sans-serif;
+            margin-left: auto;
+            margin-right: auto;
+            background-image: url("../img/teste.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+
+        .principal {
+            width: 700px;
+            height: 480px;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: 7px solid rgb(236, 233, 233);
+            border-radius: 30px;
+            margin: auto;
+
+        }
+
+        li {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li a {
+            text-decoration: none;
+            color: #555455;
+        }
+
+        li a:hover {
+            color: #CB6CE6;
+            font-weight: bold;
+        }
+
+        #login {
+            color: #FFFFFF;
+        }
+
+        ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-right: 3%;
+        }
+
+        header {
+            grid-area: a;
+        }
+
+
+        input {
+            height: 10px;
+            padding: 15px;
+            border-radius: 9px;
+            font-size: 15px;
+            color: rgb(202, 86, 223);
+        }
+
+        .titulo {
+            color: rgb(202, 86, 223);
+            font-size: 40px;
+            font-weight: bold;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+
+        form [type="submit"] {
+            height: 45px;
+            width: 150px;
+            background-color: rgb(202, 86, 223);
+            color: white;
+            font-weight: bold;
+            border: 9px;
+            cursor: pointer;
+            font-size: 20;
+        }
+
+        form [type="submit"]:hover {
+            background-color: white;
+            transition: 0.3s all;
+            color: rgb(202, 86, 223);
+            border: 3px solid rgb(202, 86, 223);
+            border-radius: 9px;
+
+
+        }
+
+        .link {
+            color: #0C4271;
+        }
+
+        .menu {
+            height: 35px;
+            width: 150px;
+            border-radius: 9px;
+            border: 2px solid black;
+
+        }
+    </style>
+
+    <br><br><br><br><br><br>
+    <div class="principal">
+        <h1 class="titulo"> Agendamento </h1>
+        Preencha as informações abaixo<br><br>
+        <form action="/agendar" method="post">
+            <br>
+            <table style="width:100%">
+                <?php
+                echo
+                '
+                <tr>
+                    <td>
+                        <p>
+                            <b>Serviço:</b><br><br>
+                            <select size="1" class="menu" id="menu_servicos" name="servico">
+                                <option id="selected"></option>';
+                $servico = $this->view->dados[0];
+                foreach ($servico  as $value) {
+                    echo
+                    '<option value= "' . $value['ID_SERVICO'] . '">' . $value['NOME'] . '</option>';
+                }
+                echo
+                '</select>
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+                            <b>Pet:</b><br><br>
+                            <select size="1" class="menu" id="menu_pet" name="pet">
+                                <option value></option> /*deixar essa em branco*';
+                $pets = $this->view->dados[1];
+                foreach ($pets  as $value) {
+                    echo
+                    '<option value= "' . $value['ID_PET'] . '">' . $value['NOME'] . '</option>';
+                }
+                echo
+                '
+                            </select>
+                        </p>
+                    </td>
+                </tr>
+                ';
+                ?>
+                <tr>
+                    <td>
+                        <p>
+                            <b>Dia:</b><br><br>
+                            <?php
+                            echo
+                            '
+                            <input type="date" id="birthday" name="date" placeholder="dd-mm-yyyy" min=' . '"' . date("Y-m-d") . '"' . 'max=' . '"' . date("Y") . '-12-31">
+                            ';
+                            ?>
+
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+                            <b>Horário:</b><br><br>
+                            <select size="1" class="menu" id="menu_horario" name="horario">
+                                <option value></option>
+                                <option value="10:30">10:30</option>
+                                <option value="11:00">11:00</option>
+                                <option value="11:30">11:30</option>
+                                <option value="12:00">12:00</option>
+                                <option value="13:00">13:00</option>
+                                <option value="13:30">13:30</option>
+                                <option value="14:00">14:00</option>
+                                <option value="14:30">14:30</option>
+                                <option value="15:00">15:00</option>
+                                <option value="15:30">15:30</option>
+                                <option value="16:00">16:00</option>
+                                <option value="16:30">16:30</option>
+                                <option value="17:00">17:00</option>
+                                <option value="17:30">17:30</option>
+                            </select>
+                        </p>
+                    </td>
+                </tr>
+
+            </table>
+            <p><br>
+                <input type="submit" value="Agendar">
+            </p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+    content="IE=edge">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro </title>
+    <link rel="icon" href="..\img\Imagem1.png">
+
+    <script>
+        function formatar(mascara, documento) {
+            var i = documento.value.length;
+            var saida = mascara.substring(0, 1);
+            var txt = mascara.substring(i)
+
+            if (txt.substring(0, 1) != saida) {
+                documento.value += txt.substring(0, 1);
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <br>
+
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/"><img src="../img/icons-servicos/logo.png" width="250px" height="90px"></a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="/#quem-somos">Sobre</a></li>
+          <li><a href="/#contato">Contato</a></li>
+          <li><a href="/servicos">Serviços</a></li>
+          <li><a id="login" href="#">Cliente Logado</a></li>
+        </ul>
+      </nav>
+</header>
+
+    <style>
+        body {
+            font-family: 'League Spartan', sans-serif;
+            margin-left: auto;
+            margin-right: auto;
+            background-image: url("../img/teste.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: #0C4271;
+
+        }
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li a {
+  text-decoration: none;
+  color: #555455;
+}
+
+li a:hover {
+  color: #CB6CE6;
+  font-weight: bold;
+}
+
+#login {
+  color: #FFFFFF;
+}
+
+ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 3%;
+}
+.principal {
+    width: 700px;
+    height: 1000px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 7px solid rgb(236, 233, 233);
+    border-radius: 30px;
+    margin: auto;
+
+        }
+
+/* header{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 10px;
+
+}
+
+a{
+    color: rgb(112, 111, 111);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+a:hover{
+    color:rgb(202, 86, 223);
+    font-weight: bold;
+    transition: 0.3s all;
+}
+
+li{
+    display: inline-block;
+    margin: 20px;
+} */
+
+
+input{
+    height: 10px;
+    padding: 15px;
+    border-radius: 9px;
+    font-size: 15px;
+    color: rgb(202, 86, 223);
+}
+
+.titulo{
+    color: rgb(202, 86, 223);
+    font-size: 40px;
+    font-weight:bold;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+form [type="submit"]{
+    height: 45px;
+    width: 150px;
+    background-color: rgb(202, 86, 223);
+    color: white;
+    font-weight: bold;
+    border: 9px;
+    cursor: pointer;
+    font-size: 20;
+}
+
+form [type="submit"]:hover{
+    background-color: white;
+    transition: 0.3s all;
+    color: rgb(202, 86, 223);
+    border: 3px solid rgb(202, 86, 223);
+    border-radius: 9px;
+
+
+}
+
+.link{
+    color: #0C4271;
+}
+
+
+    </style>
+
+
+    <div class="principal">
+        <h1 class="titulo"> Cadastro do Tutor</h1> <br>
+        <form action="/cadastrar" method="post">
+            <br>
+            <table style="width:100%">
+                <tr>
+                    <td>
+                        <p>
+                            Nome:<br><br>
+                            <input type="text" name="txtnome">
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+                            CPF:<br><br>
+                            <input type="text" name="txtcpf" maxlength="14"
+                                OnKeyPress="formatar('###.###.###-##', this)">
+                        </p>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            Telefone:<br><br>
+                            <input type="text" name="txttelefone" maxlength="12"
+                                OnKeyPress="formatar('##.####-####', this)">
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+                            Celular:<br><br>
+                            <input type="text" name="txtcelular" maxlength="14"
+                                OnKeyPress="formatar('##.#####-####', this)">
+                        </p>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            CEP:<br><br>
+                            <input type="text" step="1" name="txtcep" maxlength="9"
+                                OnKeyPress="formatar('#####-##', this)">
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+                            UF:<br><br>
+                            <input type="text" name="txtuf" maxlength="2">
+                        </p>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            Cidade:<br><br>
+                            <input type="text" name="txtcidade">
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+                            Logradouro:<br><br>
+                            <input type="text" name="txtlogradouro">
+                        </p>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            Bairro:<br><br>
+                            <input type="text" name="txtbairro">
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+                            Número:<br><br>
+                            <input type="text" name="txtnumero" maxlength="6">
+                        </p>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            Complemento:<br><br>
+                            <input type="text" name="txtcomplemento">
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+                            E-mail:<br><br>
+                            <input type="text" name="txtemail">
+                        </p>
+                    </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p>
+                            Senha:<br><br>
+                            <input type="password" name="txtsenha" maxlength="10">
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+                            Confirme a senha:<br><br>
+                            <input type="password" name="txtsenha2" maxlength="10">
+                        </p>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+            <p>
+                <input type="submit" value="Cadastrar">
+            </p>
+        </form>
+
+        <p> Já possui uma conta? <a href="/login" class="link">Clique aqui!</a></p>
+    </div>
+</body>
+</html>
